@@ -22,7 +22,7 @@ File gợi ý:
 - `src/multi_agent_research_lab/cli.py`
 - `src/multi_agent_research_lab/services/llm_client.py`
 
-TODO(student): thay baseline placeholder bằng một call LLM thật.
+Đã hoàn thành: baseline gọi provider thật và ghi latency, token, cost.
 
 ## Milestone 2: Supervisor
 
@@ -31,7 +31,7 @@ File gợi ý:
 - `src/multi_agent_research_lab/agents/supervisor.py`
 - `src/multi_agent_research_lab/graph/workflow.py`
 
-TODO(student): implement routing policy.
+Đã hoàn thành: Supervisor dùng state-based routing và max-iteration fallback.
 
 Gợi ý câu hỏi thiết kế:
 
@@ -49,7 +49,7 @@ File gợi ý:
 - `src/multi_agent_research_lab/agents/analyst.py`
 - `src/multi_agent_research_lab/agents/writer.py`
 
-TODO(student): implement từng worker.
+Đã hoàn thành: Researcher, Analyst và Writer có validation, trace và structured handoff.
 
 ## Milestone 4: Trace và benchmark
 
@@ -115,3 +115,12 @@ Mỗi nhóm trả lời 2 câu:
 
 1. Case nào nên dùng multi-agent? Vì sao?
 2. Case nào không nên dùng multi-agent? Vì sao?
+
+### Câu trả lời
+
+1. Nên dùng multi-agent khi task có thể phân rã thành các trách nhiệm thực sự khác nhau,
+   cần nhiều loại evidence, independent verification hoặc citation validation. Khi đó role
+   specialization và shared state tạo ra điểm kiểm soát rõ ràng.
+2. Không nên dùng multi-agent cho câu hỏi đơn giản, tuyến tính, ít rủi ro hoặc có một đường
+   thông tin rõ ràng. Benchmark của lab cho thấy multi-agent tăng latency và cost đáng kể;
+   coordination overhead có thể lớn hơn lợi ích chất lượng trong các case này.

@@ -7,6 +7,7 @@ from pydantic import BaseModel, Field
 
 
 class AgentName(StrEnum):
+    BASELINE = "baseline"
     SUPERVISOR = "supervisor"
     RESEARCHER = "researcher"
     ANALYST = "analyst"
